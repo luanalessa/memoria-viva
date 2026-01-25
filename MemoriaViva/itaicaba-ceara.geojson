@@ -1,0 +1,267 @@
+{
+  "type": "FeatureCollection",
+  "name": "memoria-viva-itaiçaba",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "mv-001",
+      "properties": {
+        "id": "mv-001",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Local de memória / História da cidade",
+        "titulo": "Entrada da Cidade de Itaiçaba",
+        "descricao": "O nome Itaiçaba tem origem indígena e é interpretado como “cidade das pedras”, em referência às características naturais do território. Emancipada politicamente no início da década de 1990, Itaiçaba é um município de pequeno porte, com cerca de 7 mil habitantes, localizado no Vale do Jaguaribe, no estado do Ceará. Desde os tempos mais antigos, o rio Jaguaribe foi fonte de sustento, lazer e sobrevivência da população. A pesca noturna e a convivência cotidiana com o rio deram origem a diversas lendas, histórias de malassombro e narrativas populares, transmitidas oralmente entre gerações.",
+        "midia": ["texto", "imagem"],
+        "local_nome": "Entrada da cidade (CE-123)",
+        "fonte": "História oral (moradores) + pesquisa histórica local",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8402, -4.6703] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-002",
+      "properties": {
+        "id": "mv-002",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "A Cabeça",
+        "descricao": "Uma cabeça aparecia aos pescadores durante a noite no rio Jaguaribe, subindo e descendo nas águas como se fosse alguém se afogando. Em 2001, o senhor Elias Brito relatou ter visto essa aparição. Na primeira vez pensou se tratar de um pato-d’água, mas depois percebeu que era a assombração conhecida entre os pescadores. Zé Francalino também afirmou ter visto a cabeça diversas vezes. Sempre que surgia, os pescadores ficavam apavorados e fugiam do local.",
+        "midia": ["texto"],
+        "local_nome": "Rio Jaguaribe (trecho urbano)",
+        "fonte": "Depoimento de Elias Brito em “Contos que o povo conta” (2001)",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8294, -4.6761] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-003",
+      "properties": {
+        "id": "mv-003",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Lanceador Fantasma",
+        "descricao": "Assombração muito comentada entre pescadores do rio Jaguaribe. Durante a noite, ouviam-se sons de redes sendo lançadas na água, mas não se via ninguém. O pescador Luís relatou que, quando o lanceador aparecia, os peixes desapareciam completamente. Em certa ocasião, continuou pescando, mas só conseguiu levar para casa os peixes capturados antes da manifestação.",
+        "midia": ["texto"],
+        "local_nome": "Margem do Rio Jaguaribe (área de pesca)",
+        "fonte": "Depoimento do pescador Luís em “Contos que o povo conta”",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8278, -4.6774] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-004",
+      "properties": {
+        "id": "mv-004",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Cavalo da Meia-Noite",
+        "descricao": "Assombração que surgia da quinta para a sexta-feira. Ouvia-se o galope e o resfolegar de um cavalo pelas ruas, sem que cavalo ou cavaleiro fossem vistos. Francisca Barbosa Lima (Chiquinha de Rosa) contou que, aos 16 anos, estava sentada na calçada com a mãe quando ouviram o galope à meia-noite. Todas correram para dentro e trancaram a porta. Ao abrirem depois, nada foi visto, mas o medo permaneceu.",
+        "midia": ["texto"],
+        "local_nome": "Passagem das Pedras (núcleo histórico)",
+        "fonte": "Depoimento de Francisca Barbosa Lima",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8319, -4.6732] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-005",
+      "properties": {
+        "id": "mv-005",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "A Princesa Encantada da Serra do Ereré",
+        "descricao": "Um comboieiro acampou ao pé da Serra do Ereré quando, durante a noite, foi despertado por uma bela melodia feminina. Seguindo o som, encontrou uma jovem de beleza extraordinária. Ao tentar se aproximar, ela se afastou e entrou em uma gruta entre as pedras. Morcegos impediam a entrada. Segundo a lenda, a princesa só será desencantada quando alguém enfrentar os obstáculos da serra e entrar na caverna para libertá-la.",
+        "midia": ["texto"],
+        "local_nome": "Serra do Ereré",
+        "fonte": "Lenda tradicional de Itaiçaba",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8556, -4.6538] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-006",
+      "properties": {
+        "id": "mv-006",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Cavalo de Quenga",
+        "descricao": "Assombração vista no beco de seu Doca Monteiro. Ouvia-se o som de quengas de coco batendo, semelhante ao trotar de um cavalo, mas sem que se visse o animal ou condutor. As mães costumavam assustar as crianças dizendo que o cavalo de quenga aparecia para pegar quem desobedecesse.",
+        "midia": ["texto"],
+        "local_nome": "Beco de Doca Monteiro",
+        "fonte": "Relato popular de Itaiçaba",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8331, -4.6726] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-007",
+      "properties": {
+        "id": "mv-007",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Miado do Gato",
+        "descricao": "Assombração que aparecia nas noites de lua cheia na beira do rio Jaguaribe. Os pescadores ouviam um som estranho vindo da água, seguido de uma ventania fria. Depois, escutava-se um miado semelhante ao de um gato furioso. Segundo seu Francisco, quando o miado era ouvido, nenhum peixe era pescado naquela noite.",
+        "midia": ["texto"],
+        "local_nome": "Beira do Rio Jaguaribe",
+        "fonte": "Depoimento de seu Francisco",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8289, -4.6782] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-008",
+      "properties": {
+        "id": "mv-008",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Jipe",
+        "descricao": "Aparição vista por quem passava pela Baixa do Poço, antigo caminho para o rio antes da ponte do canal do trabalhador. O senhor Elias Brito relatou que, à meia-noite, viu um jipe sair do poço e vir em sua direção. Fechou os olhos esperando ser atropelado, mas ao abrir novamente, o jipe havia desaparecido.",
+        "midia": ["texto"],
+        "local_nome": "Baixa do Poço",
+        "fonte": "Depoimento de Elias Brito",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8246, -4.6791] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-009",
+      "properties": {
+        "id": "mv-009",
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Modo de fazer / Tradição",
+        "titulo": "Queimar Judas",
+        "descricao": "Tradição presente em Itaiçaba até meados dos anos 2000. O Judas era confeccionado com palhas, montado no chamado “sítio do Judas” e queimado no Sábado de Aleluia. Antes da queimação, era lido um testamento em versos de cordel citando moradores da comunidade. Em 1974, durante a grande enchente, o Judas morreu afogado.",
+        "midia": ["texto", "imagem"],
+        "local_nome": "Área central de Itaiçaba",
+        "fonte": "Memória coletiva de Itaiçaba (imagem cedida por Lindenice Sousa)",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8336, -4.6719] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-010",
+      "properties": {
+        "id": "mv-010",
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Festa popular",
+        "titulo": "Festa de São Pedro (Itaiçaba)",
+        "descricao": "Celebração comunitária com programação religiosa e cultural. (Mock para MVP.)",
+        "midia": ["texto"],
+        "local_nome": "Praça Central",
+        "fonte": "Mock",
+        "status": "rascunho",
+        "inicio": "2026-06-28T19:00:00-03:00",
+        "fim": "2026-06-28T23:00:00-03:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8322, -4.6722] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-011",
+      "properties": {
+        "id": "mv-011",
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Feira",
+        "titulo": "Feira de Artesanato e Sabores",
+        "descricao": "Feira com produtos locais, artesanato e comidas típicas. (Mock para MVP.)",
+        "midia": ["texto"],
+        "local_nome": "Praça Central",
+        "fonte": "Mock",
+        "status": "rascunho",
+        "inicio": "2026-03-15T17:00:00-03:00",
+        "fim": "2026-03-15T21:00:00-03:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8322, -4.6722] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-012",
+      "properties": {
+        "id": "mv-012",
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Cultura / Música",
+        "titulo": "Noite Cultural do Jaguaribe",
+        "descricao": "Apresentações musicais e contação de histórias sobre o rio e a cidade. (Mock para MVP.)",
+        "midia": ["texto"],
+        "local_nome": "Beira do Rio Jaguaribe",
+        "fonte": "Mock",
+        "status": "rascunho",
+        "inicio": "2026-04-20T18:30:00-03:00",
+        "fim": "2026-04-20T21:30:00-03:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8290, -4.6778] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-013",
+      "properties": {
+        "id": "mv-013",
+        "categoria_app": "onde_ir",
+        "tipo": "Onde ir",
+        "categoria": "Ponto turístico / Religioso",
+        "titulo": "Igreja Matriz de Itaiçaba",
+        "descricao": "Principal igreja da cidade e ponto de referência do centro. (Mock para MVP.)",
+        "midia": ["texto", "imagem"],
+        "local_nome": "Centro",
+        "fonte": "Mock",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8323, -4.6725] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-014",
+      "properties": {
+        "id": "mv-014",
+        "categoria_app": "onde_ir",
+        "tipo": "Onde ir",
+        "categoria": "Ponto de encontro / Praça",
+        "titulo": "Praça Central",
+        "descricao": "Coração da cidade, bom para encontros, eventos e circulação. (Mock para MVP.)",
+        "midia": ["texto", "imagem"],
+        "local_nome": "Centro",
+        "fonte": "Mock",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8322, -4.6722] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-015",
+      "properties": {
+        "id": "mv-015",
+        "categoria_app": "onde_ir",
+        "tipo": "Onde ir",
+        "categoria": "Institucional",
+        "titulo": "Câmara Municipal de Itaiçaba",
+        "descricao": "Sede do legislativo municipal. (Mock para MVP.)",
+        "midia": ["texto"],
+        "local_nome": "Centro",
+        "fonte": "Mock",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8330, -4.6720] }
+    }
+  ]
+}
