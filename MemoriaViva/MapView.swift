@@ -9,10 +9,9 @@ struct MapView: View {
     @State private var region: MKCoordinateRegion
     @State private var searchText: String = ""
 
-    // ✅ multi seleção
-    @State private var selectedChips: Set<ChipType> = []
+    // ✅ começa com TUDO ativo
+    @State private var selectedChips: Set<ChipType> = [.memoria, .eventos, .ondeIr]
 
-    // ✅ pontos do GeoJSON + seleção
     @State private var points: [MVPoint] = []
     @State private var selectedPoint: MVPoint? = nil
 
@@ -28,7 +27,6 @@ struct MapView: View {
     var body: some View {
         ZStack(alignment: .top) {
 
-            // MAPA (MapKit via UIViewRepresentable)
             MVMapKitView(
                 region: $region,
                 points: filteredPoints()
@@ -37,7 +35,6 @@ struct MapView: View {
             }
             .ignoresSafeArea()
 
-            // UI SUPERIOR (BUSCA + CHIPS)
             VStack(spacing: 12) {
                 SearchBarFake(text: $searchText)
                     .padding(.horizontal, 16)
@@ -48,28 +45,22 @@ struct MapView: View {
                         title: "Memória",
                         systemImage: "book",
                         isSelected: selectedChips.contains(.memoria),
-                        selectedColor: Color(red: 0.86, green: 0.43, blue: 0.23) // laranja
-                    ) {
-                        toggle(.memoria)
-                    }
+                        selectedColor: Color(red: 0.86, green: 0.43, blue: 0.23)
+                    ) { toggle(.memoria) }
 
                     Chip(
                         title: "Eventos",
                         systemImage: "calendar",
                         isSelected: selectedChips.contains(.eventos),
-                        selectedColor: Color(red: 0.90, green: 0.70, blue: 0.22) // mostarda
-                    ) {
-                        toggle(.eventos)
-                    }
+                        selectedColor: Color(red: 0.90, green: 0.70, blue: 0.22)
+                    ) { toggle(.eventos) }
 
                     Chip(
                         title: "Onde ir",
                         systemImage: "storefront",
                         isSelected: selectedChips.contains(.ondeIr),
-                        selectedColor: Color(red: 0.30, green: 0.62, blue: 0.39) // verde
-                    ) {
-                        toggle(.ondeIr)
-                    }
+                        selectedColor: Color(red: 0.30, green: 0.62, blue: 0.39)
+                    ) { toggle(.ondeIr) }
 
                     Spacer()
                 }
@@ -100,7 +91,7 @@ struct MapView: View {
                     }
                 }
                 .padding(.leading, 16)
-                .padding(.bottom, 90) // acima da tab bar
+                .padding(.bottom, 90)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
 
@@ -129,7 +120,6 @@ struct MapView: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             do {
-                // ✅ nome do arquivo sem extensão: memoria-viva-itaiçaba.geojson
                 points = try MVGeoJSONLoader.loadPointsFromBundle(filename: "itaicaba-ceara")
             } catch {
                 print("Erro GeoJSON:", error.localizedDescription)
@@ -140,7 +130,7 @@ struct MapView: View {
         }
     }
 
-    // MARK: - Multi-select toggle
+    // MARK: - Toggle
 
     private func toggle(_ chip: ChipType) {
         if selectedChips.contains(chip) {
@@ -150,24 +140,29 @@ struct MapView: View {
         }
     }
 
-    // MARK: - FILTER
+    // MARK: - FILTER (desligar = some)
 
     private func filteredPoints() -> [MVPoint] {
-        // Se nada selecionado, mostra tudo
-        if selectedChips.isEmpty { return points }
+        // ✅ se desativou todos, não mostra nada
+        if selectedChips.isEmpty { return [] }
 
         return points.filter { p in
-            // GeoJSON atual só tem Memória
-            if selectedChips.contains(.memoria) {
-                let t = p.tipo.lowercased()
-                return t.contains("memória") || t.contains("memoria")
-            }
-            // Eventos/Onde ir entram quando você tiver esses dados no JSON/API
-            return false
+            guard let chip = chipType(for: p) else { return false }
+            return selectedChips.contains(chip)
         }
     }
 
-    // MARK: - ZOOM HELPERS
+    private func chipType(for p: MVPoint) -> ChipType? {
+        let c = p.categoriaApp.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+
+        if c == "memoria" { return .memoria }
+        if c == "evento" { return .eventos }
+        if c == "onde_ir" || c == "onde ir" { return .ondeIr }
+
+        return nil
+    }
+
+    // MARK: - ZOOM
 
     private func zoomIn() {
         region.span.latitudeDelta = max(region.span.latitudeDelta * 0.7, 0.002)
@@ -181,7 +176,6 @@ struct MapView: View {
 }
 
 // MARK: - FILTER TYPE
-
 enum ChipType: Hashable {
     case memoria
     case eventos

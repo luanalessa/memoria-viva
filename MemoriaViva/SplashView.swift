@@ -1,6 +1,11 @@
 import SwiftUI
 import CoreLocation
 
+let itaicabaCenter = CLLocationCoordinate2D(
+    latitude: -4.6703,
+    longitude: -37.8402
+)
+
 struct SplashView: View {
     @StateObject private var locationManager = LocationManager()
     private let geocoder = CLGeocoder()
