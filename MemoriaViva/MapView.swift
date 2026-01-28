@@ -6,6 +6,9 @@ struct MapView: View {
     let centerTitle: String
     let cityCenter: CLLocationCoordinate2D
 
+    @State private var showDetailsSheet = false
+    @State private var previewPoint: MVPoint? = nil
+
     @State private var region: MKCoordinateRegion
     @State private var searchText: String = ""
 
@@ -13,7 +16,6 @@ struct MapView: View {
     @State private var selectedChips: Set<ChipType> = [.memoria, .eventos, .ondeIr]
 
     @State private var points: [MVPoint] = []
-    @State private var selectedPoint: MVPoint? = nil
 
     init(centerTitle: String, cityCenter: CLLocationCoordinate2D) {
         self.centerTitle = centerTitle
@@ -27,14 +29,18 @@ struct MapView: View {
     var body: some View {
         ZStack(alignment: .top) {
 
+            // MAPA
             MVMapKitView(
                 region: $region,
                 points: filteredPoints()
             ) { point in
-                selectedPoint = point
+                withAnimation(.spring()) {
+                    previewPoint = point // ✅ só mostra card pequeno
+                }
             }
             .ignoresSafeArea()
 
+            // UI SUPERIOR (BUSCA + CHIPS)
             VStack(spacing: 12) {
                 SearchBarFake(text: $searchText)
                     .padding(.horizontal, 16)
@@ -66,56 +72,27 @@ struct MapView: View {
                 }
                 .padding(.horizontal, 16)
             }
-
-            // ZOOM + / - (LADO ESQUERDO)
-            VStack {
-                Spacer()
-
-                VStack(spacing: 12) {
-                    Button { zoomIn() } label: {
-                        Image(systemName: "plus")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundStyle(.white)
-                            .frame(width: 46, height: 46)
-                            .background(Color.black.opacity(0.55))
-                            .clipShape(Circle())
+        }
+        // ✅ CARD PEQUENO colado acima da barra inferior (sem “chute” de padding)
+        .safeAreaInset(edge: .bottom) {
+            if let p = previewPoint {
+                MVPlacePreviewCard(
+                    point: p,
+                    onTap: { showDetailsSheet = true },
+                    onClose: {
+                        withAnimation(.spring()) {
+                            previewPoint = nil
+                        }
                     }
-
-                    Button { zoomOut() } label: {
-                        Image(systemName: "minus")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundStyle(.white)
-                            .frame(width: 46, height: 46)
-                            .background(Color.black.opacity(0.55))
-                            .clipShape(Circle())
-                    }
-                }
-                .padding(.leading, 16)
-                .padding(.bottom, 90)
+                )
+                .padding(.horizontal, 14)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            }
-
-            // BOTÃO +
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button {
-                        // ação futura
-                    } label: {
-                        Image(systemName: "plus")
-                            .font(.system(size: 22, weight: .bold))
-                            .foregroundStyle(.white)
-                            .frame(width: 56, height: 56)
-                            .background(Color(red: 0.86, green: 0.43, blue: 0.23))
-                            .clipShape(Circle())
-                            .shadow(color: .black.opacity(0.12), radius: 14, x: 0, y: 10)
-                    }
-                    .padding(.trailing, 18)
-                    .padding(.bottom, 90)
-                }
+                .frame(height: 96)  
+                .padding(.bottom, 6) // ajuste fino: 0, 4, 6, 8...
+                .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
+        .animation(.spring(), value: previewPoint?.id)
         .navigationTitle(centerTitle)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
@@ -125,8 +102,13 @@ struct MapView: View {
                 print("Erro GeoJSON:", error.localizedDescription)
             }
         }
-        .sheet(item: $selectedPoint) { p in
-            MVPointDetailSheet(point: p)
+        .sheet(isPresented: $showDetailsSheet) {
+            if let p = previewPoint {
+                MVPointDetailSheet(
+                    point: p,
+                    onClose: { showDetailsSheet = false }
+                )
+            }
         }
     }
 
@@ -143,7 +125,6 @@ struct MapView: View {
     // MARK: - FILTER (desligar = some)
 
     private func filteredPoints() -> [MVPoint] {
-        // ✅ se desativou todos, não mostra nada
         if selectedChips.isEmpty { return [] }
 
         return points.filter { p in
@@ -176,6 +157,7 @@ struct MapView: View {
 }
 
 // MARK: - FILTER TYPE
+
 enum ChipType: Hashable {
     case memoria
     case eventos

@@ -20,6 +20,13 @@ struct SplashView: View {
     @State private var errorMessage: String? = nil
     @State private var didResolveOnce = false
 
+#if DEBUG
+    // 🔒 trava localização fixa em DEBUG
+    private let forceFixedLocationForTests = true
+#else
+    private let forceFixedLocationForTests = false
+#endif
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -136,8 +143,19 @@ struct SplashView: View {
             .onAppear {
                 // Ao abrir o app, pede localização
                 locationManager.requestPermission()
+
+                // 🔒 TESTE LOCAL: trava Itaiçaba e impede sobrescrita por GPS
+                if forceFixedLocationForTests {
+                    selectedCoordinate = itaicabaCenter
+                    selectedAddressText = "Itaiçaba – CE"
+                    errorMessage = nil
+                    didResolveOnce = true // impede reverse geocode do GPS
+                }
             }
             .onChange(of: locationManager.authorization) { _, status in
+                // 🔒 em testes, NÃO inicia GPS
+                if forceFixedLocationForTests { return }
+
                 switch status {
                 case .authorizedWhenInUse, .authorizedAlways:
                     locationManager.startUpdates()
@@ -151,6 +169,9 @@ struct SplashView: View {
                 }
             }
             .onReceive(locationManager.$userLocation) { coord in
+                // 🔒 em testes, ignora GPS
+                if forceFixedLocationForTests { return }
+
                 guard let coord else { return }
                 guard !didResolveOnce else { return }
 
