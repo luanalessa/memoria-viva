@@ -47,7 +47,7 @@ struct RootTabView: View {
                     Label("Mapa", systemImage: "map")
                 }
 
-            AgendaView()
+            AgendaView(events: [])
                 .tabItem {
                     Label("Agenda", systemImage: "calendar")
                 }

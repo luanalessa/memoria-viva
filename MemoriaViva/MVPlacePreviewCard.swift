@@ -55,12 +55,6 @@ struct MVPlacePreviewCard: View {
                         .lineLimit(1)
 
                     HStack(spacing: 2) {
-
-                        Text(point.fonte)
-                            .font(.system(size: 13, weight: .medium))
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                        
                         HStack(spacing: 4) {
                                Image(systemName: "heart.fill")
                                    .font(.system(size: 12, weight: .semibold))
@@ -70,6 +64,12 @@ struct MVPlacePreviewCard: View {
                                    .font(.system(size: 13, weight: .semibold))
                                    .foregroundStyle(.secondary)
                            }
+                        Text(point.fonte)
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                        
+                       
                     }
                 }
             }

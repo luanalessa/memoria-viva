@@ -8,6 +8,16 @@
 import Foundation
 import CoreLocation
 
+struct Event: Identifiable {
+    let id = UUID()
+    let title: String
+    let location: String
+    let date: Date
+    let time: String
+    let isToday: Bool
+}
+
+
 
 struct MVHorario: Decodable {
     let status: String?
