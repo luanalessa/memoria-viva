@@ -4,15 +4,15 @@
   "features": [
     {
       "type": "Feature",
-      "id": "mv-005",
+      "id": "mv-001",
       "properties": {
-        "id": "mv-005",
+        "id": "mv-001",
         "likes_count": 128,
         "categoria_app": "memoria",
         "tipo": "Memória",
         "categoria": "Lenda",
         "titulo": "A Princesa Encantada da Serra do Ereré",
-        "descricao": "Um comboieiro acampou ao pé da Serra do Ereré quando, durante a noite, foi despertado por uma bela melodia feminina. Seguindo o som, encontrou uma jovem de beleza extraordinária. Ao tentar se aproximar, ela se afastou e entrou em uma gruta entre as pedras. Morcegos impediam a entrada. Segundo a lenda, a princesa só será desencantada quando alguém enfrentar os obstáculos da serra e entrar na caverna para libertá-la",
+        "descricao": "Segundo a lenda, uma jovem encantada aparece cantando à noite na Serra do Ereré. Apenas quem enfrentar os desafios da serra poderá quebrar o encanto.",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
@@ -31,58 +31,210 @@
     },
     {
       "type": "Feature",
-      "id": "ev-001",
+      "id": "mv-002",
       "properties": {
-        "id": "ev-001",
-        "likes_count": 0,
-        "categoria_app": "evento",
-        "tipo": "Evento",
-        "categoria": "Festa popular",
-        "titulo": "Festa da Pescaria de Itaiçaba",
-        "descricao": "A tradicional Festa da Pescaria em Itaiçaba ocorre anualmente no início de setembro. O evento celebra a relação histórica da cidade com o rio Jaguaribe, reunindo pesca artesanal, apresentações culturais, música, comidas típicas e atividades comunitárias no Polo de Lazer Beira Rio.",
-        "data": "em Setembro",
-        "data_exata_inicio":"2026-09-05",
-        "data_exata_fim":"2026-09-07",
+        "id": "mv-002",
+        "likes_count": 76,
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Siri Encantado do Jaguaribe",
+        "descricao": "Pescadores contam sobre um siri encantado que protege o rio Jaguaribe e aparece quando alguém desrespeita as águas ou pesca além do necessário.",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
-              {   "asset_thumb": "festa-da-pescaria-thumb",
-                  "asset_full": "festa-da-pescaria-1",
-                  "descricao": ""
-              },
-              {   "asset_thumb": "festa-da-pescaria-thumb",
-                  "asset_full": "festa-da-pescaria-2",
-                  "descricao": ""
-              }]
+            {
+              "asset_thumb": "siri-encantado-thumb",
+              "asset_full": "siri-encantado",
+              "descricao": ""
+            }
+          ]
         },
-        "local_nome": "R. Cel. João Corrêa, 438",
-        "fonte": "Tradição local",
+        "local_nome": "Rio Jaguaribe",
+        "fonte": "Tradição oral",
         "status": "publicado"
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-37.820972, -4.675757]
-      }
+      "geometry": { "type": "Point", "coordinates": [-37.8232, -4.6754] }
     },
+    {
+      "type": "Feature",
+      "id": "mv-003",
+      "properties": {
+        "id": "mv-003",
+        "likes_count": 61,
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "A Mulher de Branco da Beira Rio",
+        "descricao": "Moradores relatam ver uma mulher vestida de branco caminhando pela margem do rio nas madrugadas, desaparecendo quando alguém tenta se aproximar.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            {
+              "asset_thumb": "mulher-de-branco-thumb",
+              "asset_full": "mulher-de-branco",
+              "descricao": ""
+            }
+          ]
+        },
+        "local_nome": "Polo de Lazer Beira Rio",
+        "fonte": "História popular",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.820972, -4.675757] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-004",
+      "properties": {
+        "id": "mv-004",
+        "likes_count": 54,
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Barco Fantasma do Jaguaribe",
+        "descricao": "Nas noites de lua cheia, um barco silencioso surge no Jaguaribe e some sem deixar rastro. Dizem que é sinal de respeito ao rio.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            {
+              "asset_thumb": "barco-fantasma-thumb",
+              "asset_full": "barco-fantasma",
+              "descricao": ""
+            }
+          ]
+        },
+        "local_nome": "Rio Jaguaribe",
+        "fonte": "Relato de pescadores",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8241, -4.6761] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-005",
+      "properties": {
+        "id": "mv-005",
+        "likes_count": 47,
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "A Luz da Pedra Branca",
+        "descricao": "Algumas pessoas dizem ver luzes surgindo sobre as pedras em noites muito escuras, como se alguém caminhasse com lamparina onde não há caminho.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            {
+              "asset_thumb": "luz-pedra-branca-thumb",
+              "asset_full": "luz-pedra-branca",
+              "descricao": ""
+            }
+          ]
+        },
+        "local_nome": "Pedra Branca",
+        "fonte": "Relatos locais",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8461, -4.6629] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-006",
+      "properties": {
+        "id": "mv-006",
+        "likes_count": 39,
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "O Assobio da Mata Fechada",
+        "descricao": "Quem passa perto da mata ao entardecer ouve um assobio que muda de direção. A crença diz: não responda e não siga o som.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            {
+              "asset_thumb": "assobio-mata-thumb",
+              "asset_full": "assobio-mata",
+              "descricao": ""
+            }
+          ]
+        },
+        "local_nome": "Mata próxima à cidade",
+        "fonte": "Tradição oral",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8394, -4.6682] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-007",
+      "properties": {
+        "id": "mv-007",
+        "likes_count": 33,
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "A Pedra do Eco",
+        "descricao": "Dizem que a pedra devolve a voz de quem grita perto dela — mas às vezes devolve uma resposta que não é a sua.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            {
+              "asset_thumb": "pedra-do-eco-thumb",
+              "asset_full": "pedra-do-eco",
+              "descricao": ""
+            }
+          ]
+        },
+        "local_nome": "Pedra do Eco",
+        "fonte": "Moradores antigos",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8513, -4.6597] }
+    },
+    {
+      "type": "Feature",
+      "id": "mv-008",
+      "properties": {
+        "id": "mv-008",
+        "likes_count": 29,
+        "categoria_app": "memoria",
+        "tipo": "Memória",
+        "categoria": "Lenda",
+        "titulo": "A Sombra da Antiga Estrada",
+        "descricao": "Uma sombra atravessa o antigo caminho usado por comboieiros quando a noite cai. Quem vê, costuma apressar o passo e não olha para trás.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            {
+              "asset_thumb": "sombra-estrada-thumb",
+              "asset_full": "sombra-estrada",
+              "descricao": ""
+            }
+          ]
+        },
+        "local_nome": "Antiga estrada",
+        "fonte": "História oral",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8346, -4.6704] }
+    },
+
     {
       "type": "Feature",
       "id": "wi-001",
       "properties": {
-          "contato": {
-            "whatsapp": "+5588999999999",
-            "instagram": "paginadoinstagram"
-          },
+        "contato": { "whatsapp": "+5588999999999", "instagram": "paginadoinstagram" },
         "horario": {
-        "status": "Fechado",
-        "weekday_text": [
-          "segunda-feira: 17:00–23:59",
-          "terça-feira: 17:00–23:59",
-          "quarta-feira: 17:00–23:59",
-          "quinta-feira: 17:00–23:59",
-          "sexta-feira: 17:00–23:59",
-          "sábado: 17:00–23:59",
-          "domingo: 17:00–23:59"
-        ]
+          "status": "Aberto",
+          "weekday_text": [
+            "segunda-feira: 17:00–23:59",
+            "terça-feira: 17:00–23:59",
+            "quarta-feira: 17:00–23:59",
+            "quinta-feira: 17:00–23:59",
+            "sexta-feira: 17:00–23:59",
+            "sábado: 17:00–23:59",
+            "domingo: 17:00–23:59"
+          ]
         },
         "id": "wi-001",
         "likes_count": 40,
@@ -93,21 +245,413 @@
         "descricao": "Bar e espaço de convivência em Itaiçaba, conhecido pelos petiscos variados, ambiente descontraído e ponto de encontro para moradores e visitantes, especialmente no fim de tarde e à noite.",
         "midia": {
           "tipo": ["texto", "imagem"],
-          "imagens": [{   "asset_thumb": "day-off-petiscos-thumb",
-              "asset_full": "day-off-petiscos-1",
-              "descricao": ""
-          }]
+          "imagens": [
+            { "asset_thumb": "day-off-petiscos-thumb", "asset_full": "day-off-petiscos-1", "descricao": "" }
+          ]
         },
         "local_nome": "CE-371, 214-350",
         "fonte": "Comércio local",
         "status": "publicado"
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-37.8225763, -4.6750273]
-      }
+      "geometry": { "type": "Point", "coordinates": [-37.8225763, -4.6750273] }
+    },
+    {
+      "type": "Feature",
+      "id": "wi-002",
+      "properties": {
+        "contato": { "whatsapp": "+5588999999999", "instagram": "rioemaritaicaba" },
+        "horario": {
+          "status": "Fechado",
+          "weekday_text": [
+            "segunda-feira: 11:00–14:30, 18:00–22:00",
+            "terça-feira: 11:00–14:30, 18:00–22:00",
+            "quarta-feira: 11:00–14:30, 18:00–22:00",
+            "quinta-feira: 11:00–14:30, 18:00–22:00",
+            "sexta-feira: 11:00–14:30, 18:00–23:00",
+            "sábado: 11:00–15:00, 18:00–23:00",
+            "domingo: 11:00–15:00"
+          ]
+        },
+        "id": "wi-002",
+        "likes_count": 28,
+        "categoria_app": "onde_ir",
+        "tipo": "Onde ir",
+        "categoria": "Restaurante",
+        "titulo": "Restaurante Rio & Mar",
+        "descricao": "Restaurante com foco em peixe e comida regional, perto do movimento da Beira Rio.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "rio-e-mar-thumb", "asset_full": "rio-e-mar-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Beira Rio, Itaiçaba",
+        "fonte": "Comércio local",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82140, -4.67605] }
+    },
+    {
+      "type": "Feature",
+      "id": "wi-003",
+      "properties": {
+        "contato": { "whatsapp": "+5588999999999", "instagram": "degustitaicaba" },
+        "horario": {
+          "status": "Fechado",
+          "weekday_text": [
+            "segunda-feira: 18:00–23:00",
+            "terça-feira: 18:00–23:00",
+            "quarta-feira: 18:00–23:00",
+            "quinta-feira: 18:00–23:59",
+            "sexta-feira: 18:00–23:59",
+            "sábado: 18:00–23:59",
+            "domingo: 18:00–23:00"
+          ]
+        },
+        "id": "wi-003",
+        "likes_count": 21,
+        "categoria_app": "onde_ir",
+        "tipo": "Onde ir",
+        "categoria": "Pizzaria",
+        "titulo": "Pizzaria Degust",
+        "descricao": "Pizzaria e lanches, boa opção para a noite no centro.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "degust-thumb", "asset_full": "degust-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Centro, Itaiçaba",
+        "fonte": "Comércio local",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82385, -4.67420] }
+    },
+    {
+      "type": "Feature",
+      "id": "wi-004",
+      "properties": {
+        "contato": { "whatsapp": "+5588999999999", "instagram": "canavieiragrill" },
+        "horario": {
+          "status": "Fechado",
+          "weekday_text": [
+            "segunda-feira: 11:00–14:30",
+            "terça-feira: 11:00–14:30",
+            "quarta-feira: 11:00–14:30",
+            "quinta-feira: 11:00–14:30",
+            "sexta-feira: 11:00–14:30, 18:00–22:00",
+            "sábado: 11:00–15:00, 18:00–22:00",
+            "domingo: 11:00–15:00"
+          ]
+        },
+        "id": "wi-004",
+        "likes_count": 18,
+        "categoria_app": "onde_ir",
+        "tipo": "Onde ir",
+        "categoria": "Restaurante",
+        "titulo": "Canavieira Grill",
+        "descricao": "Comida regional e grelhados, com clima de almoço de família e opções para grupos.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "canavieira-thumb", "asset_full": "canavieira-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Centro, Itaiçaba",
+        "fonte": "Comércio local",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82450, -4.67360] }
+    },
+    {
+      "type": "Feature",
+      "id": "wi-005",
+      "properties": {
+        "contato": { "whatsapp": "+5588999999999", "instagram": "manogatolanches" },
+        "horario": {
+          "status": "Fechado",
+          "weekday_text": [
+            "segunda-feira: 18:00–23:59",
+            "terça-feira: 18:00–23:59",
+            "quarta-feira: 18:00–23:59",
+            "quinta-feira: 18:00–23:59",
+            "sexta-feira: 18:00–23:59",
+            "sábado: 18:00–23:59",
+            "domingo: 18:00–23:59"
+          ]
+        },
+        "id": "wi-005",
+        "likes_count": 12,
+        "categoria_app": "onde_ir",
+        "tipo": "Onde ir",
+        "categoria": "Lanchonete",
+        "titulo": "Mano Gato Lanches",
+        "descricao": "Lanches e combos para comer no local ou pedir, ideal para a noite.",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "mano-gato-thumb", "asset_full": "mano-gato-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Centro, Itaiçaba",
+        "fonte": "Comércio local",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82310, -4.67390] }
+    },
+
+    {
+      "type": "Feature",
+      "id": "ev-001",
+      "properties": {
+        "id": "ev-001",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Festa popular",
+        "titulo": "Festa da Pescaria de Itaiçaba",
+        "descricao": "A tradicional Festa da Pescaria em Itaiçaba ocorre anualmente no início de setembro. O evento celebra a relação histórica da cidade com o rio Jaguaribe, reunindo pesca artesanal, apresentações culturais, música, comidas típicas e atividades comunitárias no Polo de Lazer Beira Rio.",
+        "data": "em Setembro",
+        "data_inicio": "2026-09-05",
+        "data_fim": "2026-09-07",
+        "data_exata_inicio": "2026-09-05",
+        "data_exata_fim": "2026-09-07",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "festa-da-pescaria-thumb", "asset_full": "festa-da-pescaria-1", "descricao": "" },
+            { "asset_thumb": "festa-da-pescaria-thumb", "asset_full": "festa-da-pescaria-2", "descricao": "" }
+          ]
+        },
+        "local_nome": "R. Cel. João Corrêa, 438",
+        "fonte": "Tradição local",
+        "status": "publicado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.820972, -4.675757] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-002",
+      "properties": {
+        "id": "ev-002",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Música",
+        "titulo": "Happy Hour no Day Off",
+        "descricao": "Noite especial com promoções de petiscos e clima de sexta-feira para reunir amigos.",
+        "data": "hoje",
+        "data_inicio": "2026-01-30",
+        "data_fim": "2026-01-30",
+        "data_exata_inicio": "2026-01-30",
+        "data_exata_fim": "2026-01-30",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "happy-hour-dayoff-thumb", "asset_full": "happy-hour-dayoff-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "CE-371, 214-350",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.8225763, -4.6750273] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-003",
+      "properties": {
+        "id": "ev-003",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Cultural",
+        "titulo": "Sexta Cultural na Beira Rio",
+        "descricao": "Encontro ao ar livre com música ambiente, circulação de comidas e espaço para convivência na Beira Rio.",
+        "data": "hoje",
+        "data_inicio": "2026-01-30",
+        "data_fim": "2026-01-30",
+        "data_exata_inicio": "2026-01-30",
+        "data_exata_fim": "2026-01-30",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "sexta-cultural-thumb", "asset_full": "sexta-cultural-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "R. Cel. João Corrêa, 438",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.820972, -4.675757] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-004",
+      "properties": {
+        "id": "ev-004",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Gastronomia",
+        "titulo": "Noite do Peixe no Rio & Mar",
+        "descricao": "Evento temático com pratos especiais de peixe e cozinha regional, celebrando o sabor do Jaguaribe.",
+        "data": "em Fevereiro",
+        "data_inicio": "2026-02-15",
+        "data_fim": "2026-02-15",
+        "data_exata_inicio": "2026-02-15",
+        "data_exata_fim": "2026-02-15",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "noite-do-peixe-thumb", "asset_full": "noite-do-peixe-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Beira Rio, Itaiçaba",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82140, -4.67605] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-005",
+      "properties": {
+        "id": "ev-005",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Cultural",
+        "titulo": "Feira de Artesanato e Sabores",
+        "descricao": "Feira com artesanato, comidas típicas e espaço para apresentações culturais.",
+        "data": "em Março",
+        "data_inicio": "2026-03-22",
+        "data_fim": "2026-03-22",
+        "data_exata_inicio": "2026-03-22",
+        "data_exata_fim": "2026-03-22",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "feira-artesanato-thumb", "asset_full": "feira-artesanato-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Centro, Itaiçaba",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82390, -4.67490] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-006",
+      "properties": {
+        "id": "ev-006",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Cultural",
+        "titulo": "Mostra de Histórias e Lendas",
+        "descricao": "Noite dedicada às histórias da cidade, com roda de conversa e contação de lendas locais.",
+        "data": "em Maio",
+        "data_inicio": "2026-05-17",
+        "data_fim": "2026-05-17",
+        "data_exata_inicio": "2026-05-17",
+        "data_exata_fim": "2026-05-17",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "mostra-lendas-thumb", "asset_full": "mostra-lendas-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Centro, Itaiçaba",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82470, -4.67460] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-007",
+      "properties": {
+        "id": "ev-007",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Esporte",
+        "titulo": "Corrida da Beira Rio",
+        "descricao": "Corrida e caminhada com percurso próximo ao rio, com ponto de encontro na Beira Rio.",
+        "data": "em Julho",
+        "data_inicio": "2026-07-05",
+        "data_fim": "2026-07-05",
+        "data_exata_inicio": "2026-07-05",
+        "data_exata_fim": "2026-07-05",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "corrida-beira-rio-thumb", "asset_full": "corrida-beira-rio-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "R. Cel. João Corrêa, 438",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.820972, -4.675757] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-008",
+      "properties": {
+        "id": "ev-008",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Gastronomia",
+        "titulo": "Festival do Petisco de Itaiçaba",
+        "descricao": "Festival com variedade de petiscos e comidas para compartilhar, reunindo bares e cozinhas locais.",
+        "data": "em Agosto",
+        "data_inicio": "2026-08-22",
+        "data_fim": "2026-08-22",
+        "data_exata_inicio": "2026-08-22",
+        "data_exata_fim": "2026-08-22",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "festival-petisco-thumb", "asset_full": "festival-petisco-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Centro, Itaiçaba",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82350, -4.67410] }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-009",
+      "properties": {
+        "id": "ev-009",
+        "likes_count": 0,
+        "categoria_app": "evento",
+        "tipo": "Evento",
+        "categoria": "Cultural",
+        "titulo": "Seresta na Praça",
+        "descricao": "Noite de música popular e encontro comunitário, valorizando a memória afetiva da cidade.",
+        "data": "em Outubro",
+        "data_inicio": "2026-10-10",
+        "data_fim": "2026-10-10",
+        "data_exata_inicio": "2026-10-10",
+        "data_exata_fim": "2026-10-10",
+        "midia": {
+          "tipo": ["texto", "imagem"],
+          "imagens": [
+            { "asset_thumb": "seresta-praca-thumb", "asset_full": "seresta-praca-1", "descricao": "" }
+          ]
+        },
+        "local_nome": "Centro, Itaiçaba",
+        "fonte": "Curadoria Memória Viva",
+        "status": "rascunho"
+      },
+      "geometry": { "type": "Point", "coordinates": [-37.82390, -4.67490] }
     }
-
-
   ]
 }
