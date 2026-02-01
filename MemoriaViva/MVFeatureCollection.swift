@@ -8,6 +8,15 @@
 import Foundation
 import CoreLocation
 
+struct SavedEvent: Identifiable {
+    let id = UUID()
+    let title: String
+    let location: String
+    let date: Date
+    let time: String
+    var reminderActive: Bool
+}
+
 struct Event: Identifiable {
     let id = UUID()
     let title: String
@@ -16,8 +25,6 @@ struct Event: Identifiable {
     let time: String
     let isToday: Bool
 }
-
-
 
 struct MVHorario: Decodable {
     let status: String?
@@ -60,18 +67,22 @@ struct MVProperties: Decodable {
     let categoria: String
     let titulo: String
     let descricao: String
-    let midia: MVMidia?          // se você já mudou pra objeto
+    let midia: MVMidia?
     let local_nome: String?
     let fonte: String?
     let status: String?
     let categoria_app: String?
+
+    // Eventos
+    let data: String?
+    let data_inicio: String?
+    let data_fim: String?
     let data_exata_inicio: String?
     let data_exata_fim: String?
-    let data: String?
+
+    // Onde ir
     let horario: MVHorario?
     let contato: MVContato?
-
-
 }
 
 struct MVGeometry: Decodable {
@@ -91,15 +102,18 @@ struct MVPoint: Identifiable {
     let fonte: String
     let coordinate: CLLocationCoordinate2D
     let imagens: [MVImagem]
+
+    // Datas (evento)
+    let dataInicio: String?
+    let dataFim: String?
     let dataExataInicio: String?
     let dataExataFim: String?
     let dataTexto: String?
+
+    // Onde ir
     let horario: MVHorario?
     let contato: MVContato?
-
 }
-
-
 
 enum MVGeoJSONLoader {
     static func loadPointsFromBundle(filename: String) throws -> [MVPoint] {
@@ -108,6 +122,8 @@ enum MVGeoJSONLoader {
         }
 
         let data = try Data(contentsOf: url)
+
+        // Mantém o comportamento padrão (snake_case do JSON == snake_case do model)
         let decoded = try JSONDecoder().decode(MVFeatureCollection.self, from: data)
 
         return decoded.features.compactMap { f -> MVPoint? in
@@ -117,19 +133,19 @@ enum MVGeoJSONLoader {
             let lon = f.geometry.coordinates[0]
             let lat = f.geometry.coordinates[1]
 
-            // ✅ Normaliza categoria_app para valores canônicos
+            // Normaliza categoria_app para valores canônicos
             let appCat = normalizeCategoriaApp(f.properties.categoria_app)
 
-            // ✅ fallback automático (se não vier no JSON)
+            // fallback automático (se não vier no JSON)
             let fallback: String = {
                 let t = f.properties.tipo.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
 
                 if t.contains("mem") { return "memoria" }
-                if t.contains("event") { return "evento" } // 🔥 aqui era "eventos" (errado)
+                if t.contains("event") { return "evento" }
                 if t.contains("onde") { return "onde_ir" }
                 return "memoria"
             }()
-            
+
             let likes = f.properties.likes_count ?? 0
 
             return MVPoint(
@@ -144,11 +160,13 @@ enum MVGeoJSONLoader {
                 fonte: f.properties.fonte ?? "-",
                 coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon),
                 imagens: f.properties.midia?.imagens ?? [],
+                dataInicio: f.properties.data_inicio,
+                dataFim: f.properties.data_fim,
                 dataExataInicio: f.properties.data_exata_inicio,
                 dataExataFim: f.properties.data_exata_fim,
                 dataTexto: f.properties.data,
                 horario: f.properties.horario,
-                contato: f.properties.contato,
+                contato: f.properties.contato
             )
         }
     }
@@ -162,12 +180,10 @@ enum MVGeoJSONLoader {
 
         if c.isEmpty { return "" }
 
-        // aceita variações comuns e transforma em canônico
         if c == "memoria" || c == "memórias" || c == "memorias" { return "memoria" }
         if c == "evento" || c == "eventos" { return "evento" }
         if c == "onde_ir" || c == "onde ir" || c == "ondeir" { return "onde_ir" }
 
-        // se vier qualquer coisa diferente, devolve vazio pra cair no fallback
         return ""
     }
 }

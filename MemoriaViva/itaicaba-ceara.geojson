@@ -218,7 +218,6 @@
       },
       "geometry": { "type": "Point", "coordinates": [-37.8346, -4.6704] }
     },
-
     {
       "type": "Feature",
       "id": "wi-001",
@@ -289,7 +288,7 @@
         "fonte": "Comércio local",
         "status": "publicado"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82140, -4.67605] }
+      "geometry": { "type": "Point", "coordinates": [-37.8214, -4.67605] }
     },
     {
       "type": "Feature",
@@ -325,7 +324,7 @@
         "fonte": "Comércio local",
         "status": "publicado"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82385, -4.67420] }
+      "geometry": { "type": "Point", "coordinates": [-37.82385, -4.6742] }
     },
     {
       "type": "Feature",
@@ -361,7 +360,7 @@
         "fonte": "Comércio local",
         "status": "publicado"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82450, -4.67360] }
+      "geometry": { "type": "Point", "coordinates": [-37.8245, -4.6736] }
     },
     {
       "type": "Feature",
@@ -397,9 +396,8 @@
         "fonte": "Comércio local",
         "status": "publicado"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82310, -4.67390] }
+      "geometry": { "type": "Point", "coordinates": [-37.8231, -4.6739] }
     },
-
     {
       "type": "Feature",
       "id": "ev-001",
@@ -496,11 +494,11 @@
         "categoria": "Gastronomia",
         "titulo": "Noite do Peixe no Rio & Mar",
         "descricao": "Evento temático com pratos especiais de peixe e cozinha regional, celebrando o sabor do Jaguaribe.",
-        "data": "em Fevereiro",
-        "data_inicio": "2026-02-15",
-        "data_fim": "2026-02-15",
-        "data_exata_inicio": "2026-02-15",
-        "data_exata_fim": "2026-02-15",
+        "data": "amanhã",
+        "data_inicio": "2026-01-31",
+        "data_fim": "2026-01-31",
+        "data_exata_inicio": "2026-01-31",
+        "data_exata_fim": "2026-01-31",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
@@ -511,7 +509,7 @@
         "fonte": "Curadoria Memória Viva",
         "status": "rascunho"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82140, -4.67605] }
+      "geometry": { "type": "Point", "coordinates": [-37.8214, -4.67605] }
     },
     {
       "type": "Feature",
@@ -524,11 +522,11 @@
         "categoria": "Cultural",
         "titulo": "Feira de Artesanato e Sabores",
         "descricao": "Feira com artesanato, comidas típicas e espaço para apresentações culturais.",
-        "data": "em Março",
-        "data_inicio": "2026-03-22",
-        "data_fim": "2026-03-22",
-        "data_exata_inicio": "2026-03-22",
-        "data_exata_fim": "2026-03-22",
+        "data": "em 2 dias",
+        "data_inicio": "2026-02-01",
+        "data_fim": "2026-02-01",
+        "data_exata_inicio": "2026-02-01",
+        "data_exata_fim": "2026-02-01",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
@@ -539,7 +537,7 @@
         "fonte": "Curadoria Memória Viva",
         "status": "rascunho"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82390, -4.67490] }
+      "geometry": { "type": "Point", "coordinates": [-37.8239, -4.6749] }
     },
     {
       "type": "Feature",
@@ -552,11 +550,11 @@
         "categoria": "Cultural",
         "titulo": "Mostra de Histórias e Lendas",
         "descricao": "Noite dedicada às histórias da cidade, com roda de conversa e contação de lendas locais.",
-        "data": "em Maio",
-        "data_inicio": "2026-05-17",
-        "data_fim": "2026-05-17",
-        "data_exata_inicio": "2026-05-17",
-        "data_exata_fim": "2026-05-17",
+        "data": "na próxima semana",
+        "data_inicio": "2026-02-07",
+        "data_fim": "2026-02-07",
+        "data_exata_inicio": "2026-02-07",
+        "data_exata_fim": "2026-02-07",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
@@ -567,7 +565,7 @@
         "fonte": "Curadoria Memória Viva",
         "status": "rascunho"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82470, -4.67460] }
+      "geometry": { "type": "Point", "coordinates": [-37.8247, -4.6746] }
     },
     {
       "type": "Feature",
@@ -578,17 +576,17 @@
         "categoria_app": "evento",
         "tipo": "Evento",
         "categoria": "Esporte",
-        "titulo": "Corrida da Beira Rio",
-        "descricao": "Corrida e caminhada com percurso próximo ao rio, com ponto de encontro na Beira Rio.",
-        "data": "em Julho",
-        "data_inicio": "2026-07-05",
-        "data_fim": "2026-07-05",
-        "data_exata_inicio": "2026-07-05",
-        "data_exata_fim": "2026-07-05",
+        "titulo": "Caminhada da Beira Rio",
+        "descricao": "Caminhada leve com ponto de encontro na Beira Rio, para movimentar a manhã e reunir a comunidade.",
+        "data": "na próxima semana",
+        "data_inicio": "2026-02-08",
+        "data_fim": "2026-02-08",
+        "data_exata_inicio": "2026-02-08",
+        "data_exata_fim": "2026-02-08",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
-            { "asset_thumb": "corrida-beira-rio-thumb", "asset_full": "corrida-beira-rio-1", "descricao": "" }
+            { "asset_thumb": "caminhada-beira-rio-thumb", "asset_full": "caminhada-beira-rio-1", "descricao": "" }
           ]
         },
         "local_nome": "R. Cel. João Corrêa, 438",
@@ -606,24 +604,24 @@
         "categoria_app": "evento",
         "tipo": "Evento",
         "categoria": "Gastronomia",
-        "titulo": "Festival do Petisco de Itaiçaba",
-        "descricao": "Festival com variedade de petiscos e comidas para compartilhar, reunindo bares e cozinhas locais.",
-        "data": "em Agosto",
-        "data_inicio": "2026-08-22",
-        "data_fim": "2026-08-22",
-        "data_exata_inicio": "2026-08-22",
-        "data_exata_fim": "2026-08-22",
+        "titulo": "Noite da Pizza na Degust",
+        "descricao": "Evento temático com promoções de pizza e combos para a noite.",
+        "data": "nos próximos dias",
+        "data_inicio": "2026-02-14",
+        "data_fim": "2026-02-14",
+        "data_exata_inicio": "2026-02-14",
+        "data_exata_fim": "2026-02-14",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
-            { "asset_thumb": "festival-petisco-thumb", "asset_full": "festival-petisco-1", "descricao": "" }
+            { "asset_thumb": "noite-pizza-thumb", "asset_full": "noite-pizza-1", "descricao": "" }
           ]
         },
         "local_nome": "Centro, Itaiçaba",
         "fonte": "Curadoria Memória Viva",
         "status": "rascunho"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82350, -4.67410] }
+      "geometry": { "type": "Point", "coordinates": [-37.82385, -4.6742] }
     },
     {
       "type": "Feature",
@@ -636,11 +634,11 @@
         "categoria": "Cultural",
         "titulo": "Seresta na Praça",
         "descricao": "Noite de música popular e encontro comunitário, valorizando a memória afetiva da cidade.",
-        "data": "em Outubro",
-        "data_inicio": "2026-10-10",
-        "data_fim": "2026-10-10",
-        "data_exata_inicio": "2026-10-10",
-        "data_exata_fim": "2026-10-10",
+        "data": "nos próximos dias",
+        "data_inicio": "2026-02-21",
+        "data_fim": "2026-02-21",
+        "data_exata_inicio": "2026-02-21",
+        "data_exata_fim": "2026-02-21",
         "midia": {
           "tipo": ["texto", "imagem"],
           "imagens": [
@@ -651,7 +649,7 @@
         "fonte": "Curadoria Memória Viva",
         "status": "rascunho"
       },
-      "geometry": { "type": "Point", "coordinates": [-37.82390, -4.67490] }
+      "geometry": { "type": "Point", "coordinates": [-37.8239, -4.6749] }
     }
   ]
 }

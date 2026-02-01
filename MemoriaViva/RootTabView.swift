@@ -47,7 +47,8 @@ struct RootTabView: View {
                     Label("Mapa", systemImage: "map")
                 }
 
-            AgendaView(events: [])
+            let points = (try? MVGeoJSONLoader.loadPointsFromBundle(filename: "itaicaba-ceara")) ?? []
+            AgendaView(points: points)
                 .tabItem {
                     Label("Agenda", systemImage: "calendar")
                 }

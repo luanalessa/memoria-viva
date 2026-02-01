@@ -1,27 +1,30 @@
 import SwiftUI
 import CoreLocation
+import MapKit
 
-let itaicabaCenter = CLLocationCoordinate2D(
-    latitude: -4.6703,
-    longitude: -37.8402
-)
+let itaicabaCenter = CLLocationCoordinate2D(latitude: -4.6703, longitude: -37.8402)
 
 struct SplashView: View {
     @StateObject private var locationManager = LocationManager()
     private let geocoder = CLGeocoder()
 
-    @State private var showAddressSearch = false
     @State private var goToMap = false
 
-    @State private var selectedAddressText: String = ""
+    @State private var selectedAddressText: String = "Procurando sua cidade…"
     @State private var selectedCoordinate: CLLocationCoordinate2D? = nil
-
-    @State private var isResolvingCity = false
-    @State private var errorMessage: String? = nil
     @State private var didResolveOnce = false
 
+    // ✅ mapa no fundo
+    @State private var mapRegion = MKCoordinateRegion(
+        center: itaicabaCenter,
+        span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08)
+    )
+
+    // animação
+    @State private var isAnimating = false
+    @State private var shimmer = false
+
 #if DEBUG
-    // 🔒 trava localização fixa em DEBUG
     private let forceFixedLocationForTests = true
 #else
     private let forceFixedLocationForTests = false
@@ -30,183 +33,111 @@ struct SplashView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.white
+                // ✅ MAPA REAL AO FUNDO (não muda o resto da tela)
+                LiveMapBackground(region: $mapRegion)
                     .ignoresSafeArea()
 
-                VStack(spacing: 16) {
+                VStack(spacing: 18) {
                     Spacer()
 
-                    Image("memoriaVivaLogo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 180, height: 180)
+                    VStack(spacing: 6) {
+                        Text("Memória Viva")
+                            .font(.system(size: 40, weight: .black, design: .rounded))
+                            .foregroundStyle(.black.opacity(0.85))
 
-                    Text("Memória Viva")
-                        .font(.system(size: 44, weight: .black, design: .rounded))
-                        .foregroundStyle(.black.opacity(0.8))
-
-                    Text("Descubra histórias, eventos e a\ncultura viva da sua cidade")
-                        .font(.system(size: 22, design: .rounded))
-                        .multilineTextAlignment(.center)
-                        .foregroundStyle(.black.opacity(0.45))
-                        .padding(.top, 6)
-
-                    Button {
-                        showAddressSearch = true
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image(systemName: "mappin.and.ellipse")
-                                .foregroundStyle(.green)
-
-                            Text(buttonTitle)
-                                .font(.system(size: 18, weight: .semibold))
-                                .foregroundStyle(.black.opacity(0.65))
-                                .lineLimit(1)
-
-                            if isResolvingCity {
-                                ProgressView().scaleEffect(0.9)
-                            } else {
-                                Image(systemName: "chevron.down")
-                                    .font(.system(size: 14, weight: .semibold))
-                                    .foregroundStyle(.black.opacity(0.35))
-                            }
-                        }
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 12)
-                        .background(Capsule().fill(.white.opacity(0.75)))
+                        Text("Descobrindo histórias perto de você…")
+                            .font(.system(size: 18, weight: .semibold, design: .rounded))
+                            .foregroundStyle(.black.opacity(0.55))
                     }
-                    .padding(.top, 10)
-                    .sheet(isPresented: $showAddressSearch) {
-                        AddressSearchView(
-                            initialQuery: selectedAddressText,
-                            onSelect: { result in
-                                selectedAddressText = result.displayName
-                                selectedCoordinate = result.coordinate
-                                errorMessage = nil
-                                showAddressSearch = false
-                            },
-                            onCancel: {
-                                showAddressSearch = false
-                            }
-                        )
-                    }
-
-                    if let errorMessage {
-                        Text(errorMessage)
-                            .font(.system(size: 14, weight: .medium))
-                            .foregroundStyle(.red)
-                            .padding(.horizontal, 22)
-                            .multilineTextAlignment(.center)
-                    }
+                    .padding(.top, 20)
 
                     Spacer()
 
-                    Button {
-                        guard canProceed else { return }
-                        goToMap = true
-                    } label: {
-                        HStack {
-                            Text("Explorar o mapa")
-                                .font(.system(size: 22, weight: .bold))
-                            Image(systemName: "arrow.right")
+                    ZStack {
+                        // pin no centro absoluto
+                        ZStack {
+                            PinRings(isAnimating: isAnimating)
+                            AnimatedPinLogo(isAnimating: isAnimating)
                         }
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 18)
-                        .background(
-                            LinearGradient(
-                                colors: [
-                                    Color(red: 0.91, green: 0.52, blue: 0.28),
-                                    Color(red: 0.86, green: 0.43, blue: 0.23)
-                                ],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 22))
-                        .opacity(canProceed ? 1.0 : 0.45)
-                    }
-                    .disabled(!canProceed)
-                    .padding(.horizontal, 22)
 
-                    Spacer(minLength: 30)
-                }
-                .navigationDestination(isPresented: $goToMap) {
-                    if let coord = selectedCoordinate {
-                        RootTabView(centerTitle: selectedAddressText, cityCenter: coord)
-                    } else {
-                        Text("Selecione uma cidade para continuar.")
+                        VStack {
+                            Spacer()
+                            LoadingPills() // loader logo abaixo do pin
+                                .padding(.bottom, 60)
+                        }
                     }
-                }
 
+
+                    Spacer()
+                }
+                .padding(.horizontal, 22)
+            }
+            .navigationDestination(isPresented: $goToMap) {
+                let coord = selectedCoordinate ?? itaicabaCenter
+                let title = (selectedAddressText.isEmpty || selectedAddressText.contains("Procurando"))
+                    ? "Itaiçaba – CE"
+                    : selectedAddressText
+                RootTabView(centerTitle: title, cityCenter: coord)
             }
             .onAppear {
-                // Ao abrir o app, pede localização
+                withAnimation(.easeInOut(duration: 0.6)) { isAnimating = true }
+                withAnimation(.linear(duration: 1.6).repeatForever(autoreverses: false)) {
+                    shimmer = true
+                }
+
                 locationManager.requestPermission()
 
-                // 🔒 TESTE LOCAL: trava Itaiçaba e impede sobrescrita por GPS
                 if forceFixedLocationForTests {
                     selectedCoordinate = itaicabaCenter
                     selectedAddressText = "Itaiçaba – CE"
-                    errorMessage = nil
-                    didResolveOnce = true // impede reverse geocode do GPS
+                    didResolveOnce = true
+                    mapRegion.center = itaicabaCenter
+                }
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    if selectedCoordinate == nil {
+                        selectedCoordinate = itaicabaCenter
+                        selectedAddressText = "Itaiçaba – CE"
+                        mapRegion.center = itaicabaCenter
+                    }
+                    goToMap = true
                 }
             }
             .onChange(of: locationManager.authorization) { _, status in
-                // 🔒 em testes, NÃO inicia GPS
                 if forceFixedLocationForTests { return }
 
                 switch status {
                 case .authorizedWhenInUse, .authorizedAlways:
                     locationManager.startUpdates()
-                case .denied, .restricted:
-                    if selectedCoordinate == nil {
-                        errorMessage = "Para continuar, digite um endereço válido."
-                        showAddressSearch = true
-                    }
                 default:
                     break
                 }
             }
             .onReceive(locationManager.$userLocation) { coord in
-                // 🔒 em testes, ignora GPS
                 if forceFixedLocationForTests { return }
-
                 guard let coord else { return }
                 guard !didResolveOnce else { return }
 
                 didResolveOnce = true
+                selectedCoordinate = coord
+
+                // ✅ mapa no fundo acompanha a localização
+                withAnimation(.easeInOut(duration: 0.6)) {
+                    mapRegion.center = coord
+                }
+
                 resolveCityFromCoordinate(coord)
             }
         }
     }
 
-    private var canProceed: Bool {
-        selectedCoordinate != nil &&
-        !selectedAddressText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-    }
-
-    private var buttonTitle: String {
-        if canProceed { return selectedAddressText }
-        if locationManager.authorization == .denied || locationManager.authorization == .restricted {
-            return "Digite sua cidade"
-        }
-        return "Usar minha localização"
-    }
-
     private func resolveCityFromCoordinate(_ coord: CLLocationCoordinate2D) {
-        isResolvingCity = true
-        errorMessage = nil
-
         let location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
 
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             DispatchQueue.main.async {
-                self.isResolvingCity = false
-
                 guard error == nil, let pm = placemarks?.first else {
-                    self.errorMessage = "Não consegui identificar sua cidade. Digite um endereço."
-                    self.showAddressSearch = true
+                    self.selectedAddressText = "Sua localização"
                     return
                 }
 
@@ -215,19 +146,98 @@ struct SplashView: View {
 
                 if let city, let state, !city.isEmpty, !state.isEmpty {
                     self.selectedAddressText = "\(city) – \(state)"
-                    self.selectedCoordinate = coord
-                    return
-                }
-
-                if let city, !city.isEmpty {
+                } else if let city, !city.isEmpty {
                     self.selectedAddressText = city
-                    self.selectedCoordinate = coord
-                    return
+                } else {
+                    self.selectedAddressText = "Sua localização"
                 }
-
-                self.errorMessage = "Não consegui identificar sua cidade. Digite um endereço."
-                self.showAddressSearch = true
             }
         }
     }
 }
+
+// MARK: - Background (Mapa real)
+private struct LiveMapBackground: View {
+    @Binding var region: MKCoordinateRegion
+
+    var body: some View {
+        Map(coordinateRegion: $region, showsUserLocation: true)
+            .disabled(true)
+            .overlay(
+                Rectangle().fill(.white.opacity(0.45)) // mantém a UI legível
+            )
+            .blur(radius: 1.5)
+            .saturation(0.9)
+    }
+}
+
+// MARK: - Pin animado
+private struct AnimatedPinLogo: View {
+    let isAnimating: Bool
+
+    var body: some View {
+        Image("memoriaVivaLogo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 190, height: 190) // ⬅️ PIN MAIOR
+            .shadow(color: .black.opacity(0.22), radius: 22, x: 0, y: 16)
+            .scaleEffect(isAnimating ? 1.0 : 0.94)
+            .offset(y: isAnimating ? -14 : 10) // bounce mais evidente
+            .animation(
+                .easeInOut(duration: 0.7).repeatForever(autoreverses: true),
+                value: isAnimating
+            )
+    }
+}
+
+
+private struct PinRings: View {
+    let isAnimating: Bool
+
+    var body: some View {
+        ZStack {
+            ring(delay: 0.00)
+            ring(delay: 0.40)
+            ring(delay: 0.80)
+        }
+        .offset(y: 40)
+    }
+
+    private func ring(delay: Double) -> some View {
+        Circle()
+            .strokeBorder(.green.opacity(0.35), lineWidth: 3)
+            .frame(width: 42, height: 42)
+            .scaleEffect(isAnimating ? 2.8 : 0.9)
+            .opacity(isAnimating ? 0.0 : 0.85)
+            .animation(
+                .easeOut(duration: 1.2)
+                    .repeatForever(autoreverses: false)
+                    .delay(delay),
+                value: isAnimating
+            )
+    }
+}
+
+// MARK: - Loader
+private struct LoadingPills: View {
+    @State private var activeIndex = 0
+    private let count = 3
+
+    var body: some View {
+        HStack(spacing: 10) {
+            ForEach(0..<count, id: \.self) { index in
+                Circle()
+                    .fill(Color.white.opacity(index == activeIndex ? 1.0 : 0.35))
+                    .frame(width: 10, height: 10)
+                    .animation(.easeInOut(duration: 0.3), value: activeIndex)
+            }
+        }
+        .padding(.top, 18)
+        .onAppear {
+            Timer.scheduledTimer(withTimeInterval: 0.35, repeats: true) { _ in
+                activeIndex = (activeIndex + 1) % count
+            }
+        }
+    }
+}
+
